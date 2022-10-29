@@ -12,13 +12,13 @@ from models.review import Review
 storage = FileStorage()
 storage.reload()
 
-a = "BaseModel"
-b = "User"
-c = "Place"
-d = "State"
-e = "City"
-f = "Amenity"
-g = "Review"
+a = 'BaseModel'
+b = 'User'
+c = 'Place'
+d = 'State'
+e = 'City'
+f = 'Amenity'
+g = 'Review'
 
 a1 = BaseModel
 b1 = User

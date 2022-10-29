@@ -40,18 +40,18 @@ class FileStorage:
         for key, val in FileStorage.__objects.items():
             if val:
                 first_dict[key] = val.to_dict()
-        with open(FileStorage.__file_path, "w", encoding="utf-8") as f:
+        with open(FileStorage.__file_path, 'w', encoding='utf-8') as f:
             json.dump(first_dict, f)
 
     def reload(self):
         """
         method reload of class reload
         """
-        my_dict = {"BaseModel": BaseModel, "User": User, "Place": Place,
-                   "State": State, "City": City, "Amenity": Amenity,
-                   "Review": Review}
+        my_dict = {'BaseModel': BaseModel, 'User': User, 'Place': Place,
+                   'State': State, 'City': City, 'Amenity': Amenity,
+                   'Review': Review}
         if os.path.isfile(FileStorage.__file_path):
-            with open(FileStorage.__file_path, "r", encoding="utf-8") as q:
+            with open(FileStorage.__file_path, 'r', encoding='utf-8') as q:
                 other_dict = json.loads(q.read())
                 for key, val in other_dict.items():
-                    self.new(my_dict[val["__class__"]](**val))
+                    self.new(my_dict[val['__class__']](**val))

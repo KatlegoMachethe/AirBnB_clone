@@ -1,38 +1,29 @@
 #!/usr/bin/python3
-
-"""
-Module test_base_model
-Has the test for the BaseModel class
-"""
+"""Unittests for base model class"""
 
 
 import unittest
-from uuid import UUID
-from datetime import datetime
 from models.base_model import BaseModel
+from datetime import datetime
+from uuid import UUID
 from models import storage
 
-class TestBaseModel(unittest.TestCase):
-    """
-    Testing if the BaseModel functions properly
-    """
+
+class TestsBaseModel(unittest.TestCase):
 
     def test_normal_cases_base_model(self):
-        """
-        Test for normal case use of base model
-        """
+        """normal cases"""
         my_object = BaseModel()
-        my_object.name = "Kuvukiland"
-        my_object.my_number = 24
+        my_object.name = "Holbiland"
+        my_object.my_number = 29
         my_object.save()
         my_object_dict = my_object.to_dict()
-
-        self.AssertEqual(my_object.__class__.__name__, "BaseModel")
-        self.AssertEqual(my_object.name, "kuvukiland")
-        self.AssertEqual(my_object.my_number, 24)
-        self.AssertEqual(isinstance(my_object.created_at, datetime), True)
-        self.AssertEqual(isinstance(my_object.updated_at, datetime), True)
-        self.AssertEqual(type(my_object.__dict__), dict)
+        self.assertEqual(my_object.name, "Holbiland")
+        self.assertEqual(my_object.my_number, 29)
+        self.assertEqual(my_object.__class__.__name__, "BaseModel")
+        self.assertEqual(isinstance(my_object.created_at, datetime), True)
+        self.assertEqual(isinstance(my_object.updated_at, datetime), True)
+        self.assertEqual(type(my_object.__dict__), dict)
 
 if __name__ == "__main__":
     unittest.main()

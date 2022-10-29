@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """
-Module: Console
-This is a console for the AirBnB clone that
-is resposible for validating the file storage
+fun console AirB&B proyect
 """
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
@@ -19,20 +17,16 @@ import cmd
 
 class HBNBCommand(cmd.Cmd):
     """
-    HBNB class console command intepreter
+    class HBNB for command lines
     """
     prompt = "(hbnb) "
 
     def emptyline(self):
-        """
-        Pops the Prompt in the next line
-        """
+        """don't make nothing"""
         pass
 
     def do_create(self, args):
-        """
-        Creates a new object
-        """
+        """creates a new instance"""
         if len(args) == 0:
             print("** class name missing **")
             return
@@ -46,9 +40,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_show(self, args):
-        """
-        Prints a string representation of a new object
-        """
+        """Prints the string representation of an instance"""
         token = args.split()
 
         if len(token) == 0:
@@ -72,9 +64,7 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def do_destroy(self, args):
-        """
-        Deletes an object with specified id
-        """
+        """Deletes an instance based on the class name"""
         token = args.split()
 
         if len(args) == 0:
@@ -97,9 +87,7 @@ class HBNBCommand(cmd.Cmd):
         storage.save()
 
     def do_all(self, arg):
-        """
-        Prints all objects in a given class
-        """
+        """ Prints string represention of all instances of a given class """
 
         if not arg:
             print("** class name missing **")
@@ -120,9 +108,7 @@ class HBNBCommand(cmd.Cmd):
             print(newList)
 
     def do_update(self, args):
-        """
-        Updates an object based on the class name and id
-        """
+        """ Updates an instance based on the class name and id """
 
         if not args:
             print("** class name missing **")
@@ -151,15 +137,11 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def do_EOF(self, args):
-        """
-        End_Of_File - Kills the console
-        """
+        """end_of_file"""
         return True
 
     def do_quit(self, args):
-        """
-        Kills the console
-        """
+        """Quit command to exit the program"""
         return True
 
 if __name__ == "__main__":

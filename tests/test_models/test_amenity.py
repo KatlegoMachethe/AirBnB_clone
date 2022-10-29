@@ -11,9 +11,7 @@ from models import storage
 
 
 class TestsAmenity(unittest.TestCase):
-    """
-    Tests the Amenity class
-    """
+
     obj = Amenity()
 
     def setUp(self):
@@ -21,13 +19,12 @@ class TestsAmenity(unittest.TestCase):
         name = ""
 
     def test_normal_cases_amenity(self):
-        """ Normal cases """
+        """normal cases"""
         my_object = Amenity()
         my_object.name = "Holbiland"
         my_object.my_number = 29
         my_object.save()
         my_object_dict = my_object.to_dict()
-
         self.assertEqual(my_object.name, "Holbiland")
         self.assertEqual(my_object.my_number, 29)
         self.assertEqual(my_object.__class__.__name__, "Amenity")
@@ -40,7 +37,7 @@ class TestsAmenity(unittest.TestCase):
         self.assertEqual(issubclass(Amenity, BaseModel), True)
 
     def test_type(self):
-        """tests for the typr of object"""
+        """test type of object"""
         obj = Amenity()
         self.assertEqual(type(self.obj.name), str)
 

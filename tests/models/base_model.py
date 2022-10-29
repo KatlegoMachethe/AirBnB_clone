@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """
-Module: base_model
-Contains the "BaseModel" class that defines all
-common attributes/methods for other classe.
+fun class base model do everuthing
 """
 import uuid
 from datetime import datetime
@@ -11,11 +9,11 @@ import models
 
 class BaseModel:
     """
-    Defines all common attributes for other classes
+    our code insert here
     """
     def __init__(self, *args, **kwargs):
         """
-        Initializes the public attributes
+        constructor of base Model
         """
         if not kwargs:
             self.id = str(uuid.uuid4())
@@ -24,29 +22,29 @@ class BaseModel:
             models.storage.new(self)
         else:
             for key, val in kwargs.items():
-                if key == "created_at" or key == "updated_at":
+                if key == 'created_at' or key == 'updated_at':
                     dataTime = "%Y-%m-%dT %H:%M:%S.%f"
                     val = datetime.strptime(kwargs[key], dataTime)
-                if key != "__class__":
+                if key != '__class__':
                     setattr(self, key, val)
 
     def __str__(self):
         """
-        Prints something in special format
+        method for named
         """
         nameClass = self.__class__.__name__
         return ("[{}] ({}) {}".format(nameClass, self.id, self.__dict__))
 
     def save(self):
         """
-        Mothod for updating public attr and saves them
+        method for save stuff
         """
         self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
         """
-        Returns a dictionery
+        method for create a dict
         """
         new_dict = dict(self.__dict__)
         new_dict["__class__"] = self.__class__.__name__

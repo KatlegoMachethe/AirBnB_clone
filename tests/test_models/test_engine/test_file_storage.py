@@ -6,7 +6,7 @@ import unittest
 from models.engine.file_storage import FileStorage
 
 class TestsFileStorage(unittest.TestCase):
-    """Test if file storage system works properly"""
+
     def test_normal_cases_base_model(self):
         """normal cases"""
         my_object = FileStorage()
